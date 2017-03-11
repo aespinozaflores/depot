@@ -4,10 +4,10 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @product = products(:one)
     @update = {
-	title:		'Lorem Ipsum',
-	description:	'Wibbles are fun!',
-	image_url:	'Squirrel.jpg',
-	price:		19.95
+        title:          'Lorem Ipsum',
+        description:    'Wibbles are fun!',
+        image_url:      'Squirrel.jpg',
+        price:          19.95
    }
   end
 
