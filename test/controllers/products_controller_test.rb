@@ -32,6 +32,7 @@ test "should get index" do
   test "should update product" do
     patch product_url(@product), params: { product: @update }
     assert_redirected_to product_url(@product)
+  end
   
   test "Can't delete product in cart" do
    assert_difference('Product.count', 0) do
@@ -46,5 +47,4 @@ test "should get index" do
   end
 
    assert_redirected_to products_url
-end
 end
