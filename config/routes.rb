@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
+  resources :orders
   resources :carts
   resources :line_items
-    root 'store#index', as: 'store_index'
+  root 'store#index', as: 'store_index'
+  
+  resources :products do
+    get :download, :on => :member  
+    get :who_bought, on: :member
+  end
  
-  resources :products
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # http://guides.rubyonrails.org/routing.html
 end
