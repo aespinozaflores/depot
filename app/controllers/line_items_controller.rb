@@ -1,6 +1,7 @@
 class LineItemsController < ApplicationController
+  skip_before_action :authorize, only: :create
   include CurrentCart
- before_action :set_cart, only: [:create]
+  before_action :set_cart, only: [:create]
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
 
   # GET /line_items
@@ -34,11 +35,11 @@ class LineItemsController < ApplicationController
         format.html { redirect_to store_index_url }
         format.js   { @current_item = @line_item }
         format.json { render :show,
-          status: :created, location: @line_item }
+                             status: :created, location: @line_item }
       else
         format.html { render :new }
         format.json { render json: @line_item.errors,
-         status: :unprocessable_entity }
+                      status: :unprocessable_entity }
       end
     end 
   end
