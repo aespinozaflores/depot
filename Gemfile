@@ -34,23 +34,39 @@ gem 'jbuilder', '~> 2.5'
  gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'capistrano-rails', group: :development
+gem 'capistrano-rvm', group: :development
+gem 'capistrano-bundler', group: :development
+gem 'capistrano-passenger', group: :development
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  # Call 'byebug' anywhere in the code to stop execution and get a
+  # debugger console
   gem 'byebug', platform: :mri
 end
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
+  # Access an IRB console on exception pages or by using <%= console %>
+  # anywhere in the code.
   gem 'web-console', '>= 3.3.0'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  # Spring speeds up development by keeping your application running in the
+  # background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :production do
+  gem 'mysql2'
 end
 
 gem 'activemodel-serializers-xml'
 gem 'i18n-js'
 gem 'rails-i18n','~> 5.0.0'
+
+gem 'kaminari'
+gem 'activemerchant', '~>1.58'
+gem 'erubis'
+gem 'haml', '~>4.0'
+gem 'devise'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
